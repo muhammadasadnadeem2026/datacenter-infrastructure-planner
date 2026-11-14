@@ -17,7 +17,7 @@ interface NodeProps {
 
 function SankeyNode({ x, y, width, height, index, payload, containerWidth }: NodeProps) {
   const isSource = index === 0;
-  const color = isSource ? '#6C7CD7' : SERIES_COLORS[(index - 1) % SERIES_COLORS.length];
+  const color = isSource ? '#F6C66E' : SERIES_COLORS[(index - 1) % SERIES_COLORS.length];
   const labelRight = !isSource && x + width + 6 < containerWidth;
   return (
     <Layer>

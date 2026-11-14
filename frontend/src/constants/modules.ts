@@ -38,7 +38,7 @@ export const MODULE_ORDER = [
 ];
 
 /** Chart palette, fixed order: Accent, Chart Rust, Chart Teal, Periwinkle, Chart Navy. */
-export const SERIES_COLORS = ['#D98E1F', '#C4551A', '#0E6E73', '#6C7CD7', '#1F4E79'];
+export const SERIES_COLORS = ['#F2A93B', '#C4551A', '#0E6E73', '#F6C66E', '#3A3A55'];
 
 export const STATUS_STYLES: Record<string, { label: string; cls: string; icon: string }> = {
   ok: { label: 'OK', cls: 'bg-emerald-50 text-emerald-800 ring-emerald-600/20', icon: '✓' },

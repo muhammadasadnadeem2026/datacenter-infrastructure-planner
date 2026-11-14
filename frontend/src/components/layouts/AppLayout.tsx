@@ -61,16 +61,16 @@ function Sidebar({ onNavigate }: { onNavigate?: () => void }) {
   const { pathname } = useLocation();
   const meta = useMeta();
   return (
-    <div className="flex h-full flex-col bg-brand-navy text-[#C4D2E8]">
+    <div className="flex h-full flex-col bg-brand-navy text-[#B9B9CC]">
       <div className="px-5 pb-4 pt-6">
         <BrandLockup className="h-[18px] w-auto" />
-        <div className="mt-4 text-[11px] font-bold uppercase tracking-[0.18em] text-[#6C7CD7]">HallPlan</div>
-        <div className="text-xs font-light text-[#C4D2E8]/75">Data Center Infrastructure Planner</div>
+        <div className="mt-4 text-[11px] font-bold uppercase tracking-[0.18em] text-[#F6C66E]">HallPlan</div>
+        <div className="text-xs font-light text-[#B9B9CC]/75">Data Center Infrastructure Planner</div>
       </div>
       <nav className="flex-1 space-y-5 overflow-y-auto px-3 pb-4" aria-label="Main">
         {NAV_SECTIONS.map((section) => (
           <div key={section.title}>
-            <div className="px-2.5 pb-1.5 text-[10px] font-bold uppercase tracking-[0.16em] text-[#6C7CD7]">
+            <div className="px-2.5 pb-1.5 text-[10px] font-bold uppercase tracking-[0.16em] text-[#F6C66E]">
               {section.title}
             </div>
             <ul className="space-y-0.5">
@@ -85,8 +85,8 @@ function Sidebar({ onNavigate }: { onNavigate?: () => void }) {
                       aria-current={active ? 'page' : undefined}
                       className={`group relative flex items-center gap-3 rounded-lg px-2.5 py-2 text-sm transition-colors ${
                         active
-                          ? 'bg-[#D98E1F]/20 font-semibold text-white'
-                          : 'text-[#C4D2E8]/80 hover:bg-white/5 hover:text-white'
+                          ? 'bg-[#F2A93B]/20 font-semibold text-white'
+                          : 'text-[#B9B9CC]/80 hover:bg-white/5 hover:text-white'
                       }`}
                     >
                       {active && (
@@ -96,7 +96,7 @@ function Sidebar({ onNavigate }: { onNavigate?: () => void }) {
                         />
                       )}
                       <Icon
-                        className={`transition-colors ${active ? 'text-[#4D8BFF]' : 'text-[#6C7CD7] group-hover:text-[#C4D2E8]'}`}
+                        className={`transition-colors ${active ? 'text-[#F2A93B]' : 'text-[#F6C66E] group-hover:text-[#B9B9CC]'}`}
                       />
                       {item.label}
                     </NavLink>
@@ -107,7 +107,7 @@ function Sidebar({ onNavigate }: { onNavigate?: () => void }) {
           </div>
         ))}
       </nav>
-      <div className="border-t border-white/10 px-5 py-3 text-[11px] text-[#C4D2E8]/60">
+      <div className="border-t border-white/10 px-5 py-3 text-[11px] text-[#B9B9CC]/60">
         Calculation engine {meta.data ? `v${meta.data.engine_version}` : '…'}
         <br />
         Planning estimates only
@@ -131,7 +131,7 @@ export function AppLayout() {
         <div className="fixed inset-0 z-40 lg:hidden" role="dialog" aria-modal="true" aria-label="Navigation">
           <button
             type="button"
-            className="absolute inset-0 bg-[#09132B]/60 backdrop-blur-sm"
+            className="absolute inset-0 bg-[#0A0A14]/60 backdrop-blur-sm"
             aria-label="Close menu"
             onClick={() => setOpen(false)}
           />

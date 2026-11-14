@@ -17,7 +17,7 @@ function systemTheme(): ResolvedTheme {
 function readPref(): ThemePref {
   try {
     const v = localStorage.getItem(KEY);
-    return v === 'light' || v === 'dark' || v === 'system' ? v : 'system';
+    return v === 'light' || v === 'dark' || v === 'system' ? v : 'dark';
   } catch {
     return 'system';
   }
@@ -76,19 +76,19 @@ if (typeof window !== 'undefined') {
 export function chartTheme(theme: ResolvedTheme) {
   return theme === 'dark'
     ? {
-        grid: '#223054',
-        axis: '#33436b',
-        tick: '#93a1c0',
-        label: '#dde4f2',
-        link: '#2a4c9c',
-        cursor: '#16223f',
+        grid: '#26263a',
+        axis: '#34344f',
+        tick: '#8a8aa3',
+        label: '#e2e2ec',
+        link: '#8a5a12',
+        cursor: '#13131f',
       }
     : {
-        grid: '#dce3ef',
-        axis: '#c4d2e8',
-        tick: '#5b6478',
-        label: '#182036',
-        link: '#adc8ff',
-        cursor: '#eaeff9',
+        grid: '#e2e2ec',
+        axis: '#b9b9cc',
+        tick: '#5a5a72',
+        label: '#0A0A14',
+        link: '#f6c66e',
+        cursor: '#eeeef5',
       };
 }
