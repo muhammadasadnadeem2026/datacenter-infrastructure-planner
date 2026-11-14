@@ -39,3 +39,10 @@ def create_app() -> FastAPI:
 
 
 app = create_app()
+
+# SQLite (local default and the Vercel demo): create the tables if migrations have not been run.
+if get_settings().database_url.startswith("sqlite"):
+    from app.models import project as _project  # noqa: E402,F401  (registers the tables)
+    from app.database.session import Base, engine  # noqa: E402
+
+    Base.metadata.create_all(engine)

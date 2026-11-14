@@ -1,5 +1,6 @@
 """Application settings from environment variables (never hard-code secrets)."""
 
+import os
 from functools import lru_cache
 from pathlib import Path
 
@@ -11,7 +12,13 @@ class Settings(BaseSettings):
 
     environment: str = "development"
     # Local default: SQLite file next to the backend package. Docker / production set DATABASE_URL.
-    database_url: str = f"sqlite:///{(Path(__file__).resolve().parents[1] / 'hallplan.db').as_posix()}"
+    # On Vercel the code directory is read-only, so the default database lives in /tmp (a demo: it resets
+    # when the function instance is recycled; set DATABASE_URL to a PostgreSQL URL to keep projects).
+    database_url: str = (
+        "sqlite:////tmp/hallplan.db"
+        if os.environ.get("VERCEL")
+        else f"sqlite:///{(Path(__file__).resolve().parents[1] / 'hallplan.db').as_posix()}"
+    )
     cors_origins: str = "http://localhost:5173,http://127.0.0.1:5173"
     rate_limit_per_minute: int = 240
     log_level: str = "info"
