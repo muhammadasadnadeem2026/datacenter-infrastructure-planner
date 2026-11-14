@@ -1,0 +1,26 @@
+[
+  {
+    "id": "example-liquid-ai-rack",
+    "manufacturer": "Example Vendor (replace with verified data)",
+    "platform": "Liquid-cooled GPU rack-scale system",
+    "rack_power_kw": 120,
+    "cooling_type": "Direct-to-chip liquid",
+    "voltage": "415/240 V three-phase or 48-54 V DC busbar",
+    "architecture": "Rack-scale GPU system with in-rack power shelves",
+    "reference_url": "",
+    "review_date": null,
+    "notes": "Placeholder record. Enter the manufacturer's published maximum rack power and review date before relying on it."
+  },
+  {
+    "id": "example-air-gpu-server",
+    "manufacturer": "Example Vendor (replace with verified data)",
+    "platform": "8-GPU air-cooled server, 4 per rack",
+    "rack_power_kw": 40,
+    "cooling_type": "Air + rear-door heat exchanger",
+    "voltage": "208 V or 415/240 V three-phase",
+    "architecture": "Discrete 8-GPU servers",
+    "reference_url": "",
+    "review_date": null,
+    "notes": "Placeholder record for a GPU/HPC rack."
+  }
+]

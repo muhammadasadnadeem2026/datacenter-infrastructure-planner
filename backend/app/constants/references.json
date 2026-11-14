@@ -1,0 +1,134 @@
+[
+  {
+    "id": "nec-continuous-load",
+    "organization": "NFPA",
+    "document": "NFPA 70, National Electrical Code",
+    "edition": "Edition adopted by the Authority Having Jurisdiction",
+    "section": "Branch-circuit and overcurrent-protection provisions for continuous loads (to be verified)",
+    "description": "Basis commonly cited for sizing continuous loads at 80 % of the overcurrent device rating (125 % of continuous load). HallPlan uses 0.80 as an editable default; verify the applicable provision and exceptions for the adopted edition.",
+    "url": "https://www.nfpa.org/codes-and-standards/nfpa-70-standard-development/70",
+    "date_verified": null,
+    "verification_status": "unverified"
+  },
+  {
+    "id": "ashrae-tc99-thermal",
+    "organization": "ASHRAE TC 9.9",
+    "document": "Thermal Guidelines for Data Processing Environments",
+    "edition": "Current edition (to be confirmed by user)",
+    "section": "Environmental classes A1-A4, recommended and allowable envelopes (to be verified)",
+    "description": "Source of the equipment environmental classes. HallPlan's temperature bands are configurable planning values and must be checked against the edition in use.",
+    "url": "https://www.ashrae.org/technical-resources/bookstore/datacom-series",
+    "date_verified": null,
+    "verification_status": "unverified"
+  },
+  {
+    "id": "green-grid-pue",
+    "organization": "The Green Grid / ISO/IEC",
+    "document": "PUE metric; ISO/IEC 30134-2 Key performance indicators - Power usage effectiveness",
+    "edition": "ISO/IEC 30134-2 (edition to be confirmed)",
+    "section": "Definition of PUE = total facility energy / IT equipment energy",
+    "description": "Definition of Power Usage Effectiveness used for facility power and energy estimates.",
+    "url": "https://www.iso.org/standard/63451.html",
+    "date_verified": null,
+    "verification_status": "unverified"
+  },
+  {
+    "id": "uptime-tiers",
+    "organization": "Uptime Institute",
+    "document": "Tier Standard: Topology",
+    "edition": "Current edition (to be confirmed)",
+    "section": "Redundancy and concurrent maintainability concepts",
+    "description": "Background for N, N+1 and 2N redundancy terminology. HallPlan's redundancy multipliers are arithmetic definitions, not a Tier assessment.",
+    "url": "https://uptimeinstitute.com/tiers",
+    "date_verified": null,
+    "verification_status": "unverified"
+  },
+  {
+    "id": "energy-star-dc",
+    "organization": "ENERGY STAR (US EPA)",
+    "document": "Data center energy efficiency resources",
+    "edition": "Web resource",
+    "section": "Data center efficiency guidance",
+    "description": "General guidance on data-center energy use and efficiency measures.",
+    "url": "https://www.energystar.gov/products/data_center_equipment",
+    "date_verified": null,
+    "verification_status": "unverified"
+  },
+  {
+    "id": "doe-dc-energy",
+    "organization": "US DOE",
+    "document": "Data center energy efficiency resources (FEMP / Center of Expertise)",
+    "edition": "Web resource",
+    "section": "Data center energy benchmarking",
+    "description": "Background on energy benchmarking and PUE ranges.",
+    "url": "https://datacenters.lbl.gov/",
+    "date_verified": null,
+    "verification_status": "unverified"
+  },
+  {
+    "id": "ieee-551-short-circuit",
+    "organization": "IEEE",
+    "document": "IEEE 551 - Recommended Practice for Calculating AC Short-Circuit Currents in Industrial and Commercial Power Systems",
+    "edition": "To be confirmed",
+    "section": "Short-circuit calculation methodology",
+    "description": "A proper short-circuit study follows a recognized methodology. HallPlan only estimates the symmetrical current at the transformer terminals assuming an infinite source.",
+    "url": "https://standards.ieee.org/",
+    "date_verified": null,
+    "verification_status": "unverified"
+  },
+  {
+    "id": "ieee-c57-transformers",
+    "organization": "IEEE",
+    "document": "IEEE C57 series - Distribution, power and regulating transformers",
+    "edition": "To be confirmed",
+    "section": "Transformer ratings and loading",
+    "description": "Transformer rating and loading guidance.",
+    "url": "https://standards.ieee.org/",
+    "date_verified": null,
+    "verification_status": "unverified"
+  },
+  {
+    "id": "ieee-485-battery",
+    "organization": "IEEE",
+    "document": "IEEE 485 / IEEE 1184 - Battery sizing for stationary and UPS applications",
+    "edition": "To be confirmed",
+    "section": "Battery sizing methodology",
+    "description": "Battery runtime and sizing require manufacturer discharge data; HallPlan's runtime is an idealized energy estimate.",
+    "url": "https://standards.ieee.org/",
+    "date_verified": null,
+    "verification_status": "unverified"
+  },
+  {
+    "id": "iec-60309",
+    "organization": "IEC",
+    "document": "IEC 60309 - Plugs, socket-outlets and couplers for industrial purposes",
+    "edition": "To be confirmed",
+    "section": "Connector ratings",
+    "description": "Industrial pin-and-sleeve connector ratings used in the receptacle library.",
+    "url": "https://webstore.iec.ch/",
+    "date_verified": null,
+    "verification_status": "unverified"
+  },
+  {
+    "id": "manufacturer-data",
+    "organization": "Equipment manufacturers",
+    "document": "Manufacturer datasheets, derating curves and discharge tables",
+    "edition": "Project-specific",
+    "section": "As applicable",
+    "description": "Generator, UPS, battery, cooling and transformer derating and performance data must come from the selected manufacturer.",
+    "url": "",
+    "date_verified": null,
+    "verification_status": "project-specific"
+  },
+  {
+    "id": "physics-conversion",
+    "organization": "NIST",
+    "document": "NIST Special Publication 811 - Guide for the Use of the International System of Units",
+    "edition": "2008",
+    "section": "Appendix B - Conversion factors",
+    "description": "Unit conversion factors (BTU, ton of refrigeration, foot, square foot).",
+    "url": "https://www.nist.gov/pml/special-publication-811",
+    "date_verified": null,
+    "verification_status": "unverified"
+  }
+]

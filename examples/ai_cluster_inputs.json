@@ -1,0 +1,161 @@
+{
+  "format": "hallplan-project",
+  "name": "AI cluster - 8 x 120 kW",
+  "inputs": {
+    "mode": "engineering",
+    "unit_system": "imperial",
+    "preset": "ai_cluster",
+    "it": {
+      "input_mode": "rack_average",
+      "rack_count": 8,
+      "kw_per_rack": 120,
+      "power_factor": 0.95,
+      "utilization_pct": 100,
+      "devices": [
+        {
+          "equipment_type": "CPU Server",
+          "description": "2U dual-socket compute",
+          "quantity": 16,
+          "nameplate_w": 800,
+          "utilization_pct": 60,
+          "rack": "R01"
+        },
+        {
+          "equipment_type": "Storage",
+          "description": "All-flash array",
+          "quantity": 2,
+          "nameplate_w": 1200,
+          "utilization_pct": 70,
+          "rack": "R02"
+        },
+        {
+          "equipment_type": "Network Switch",
+          "description": "Top-of-rack 48-port",
+          "quantity": 4,
+          "nameplate_w": 350,
+          "utilization_pct": 50,
+          "rack": "R01"
+        },
+        {
+          "equipment_type": "Firewall",
+          "description": "Edge firewall pair",
+          "quantity": 2,
+          "nameplate_w": 250,
+          "utilization_pct": 50,
+          "rack": "R02"
+        }
+      ]
+    },
+    "rack": {
+      "rack_rating_kw": 132
+    },
+    "space": {
+      "room_area": 1200,
+      "room_area_unit": "ft2"
+    },
+    "electrical": {
+      "receptacle_id": "iec_60309_63a_415",
+      "voltage": 415,
+      "current": 63,
+      "phase": "three",
+      "continuous_derate": 0.8,
+      "circuits_per_rack": 0
+    },
+    "pdu": {
+      "voltage": 415,
+      "amperage": 63,
+      "phase": "three",
+      "continuous_derate": 0.8,
+      "growth_margin_pct": 20,
+      "feed": "ab"
+    },
+    "ups": {
+      "target_load_pct": 80,
+      "redundancy": "N+1",
+      "modules_n": 3,
+      "module_kva": 0,
+      "battery": {
+        "enabled": false,
+        "chemistry": "li_ion",
+        "nominal_voltage": 480,
+        "capacity_kwh": 40,
+        "capacity_ah": 0,
+        "discharge_efficiency": 0.95,
+        "degradation_pct": 20,
+        "runtime_target_min": 5
+      }
+    },
+    "cooling": {
+      "unit_capacity_kw": 500,
+      "unit_count": 3,
+      "redundancy": "N+1"
+    },
+    "facility": {
+      "pue": 1.25,
+      "cooling_share_pct": null,
+      "electrical_loss_share_pct": null,
+      "other_share_pct": null
+    },
+    "environment": {
+      "ambient_temp": 24,
+      "ambient_temp_unit": "C",
+      "altitude": 100,
+      "altitude_unit": "m",
+      "ashrae_class": "A1",
+      "humidity_pct": null,
+      "temperature_derate_factor": 1.0,
+      "altitude_derate_factor": 1.0,
+      "apply_derating": false
+    },
+    "utility": {
+      "service_voltage_v": 13800,
+      "service_capacity_kva": 4000
+    },
+    "transformer": {
+      "enabled": true,
+      "primary_voltage_v": 13800,
+      "secondary_voltage_v": 415,
+      "kva_rating": 2500,
+      "efficiency": 0.985,
+      "impedance_pct": 5.75,
+      "quantity": 2,
+      "redundancy": "N+1",
+      "target_utilization_pct": 80
+    },
+    "generator": {
+      "enabled": true,
+      "unit_kw": 1500,
+      "unit_kva": 1875,
+      "power_factor": 0.8,
+      "quantity": 2,
+      "redundancy": "N+1",
+      "step_load_pct": 50,
+      "target_loading_pct": 80,
+      "load_basis": "full",
+      "custom_load_kw": 0
+    },
+    "bess": {
+      "enabled": true,
+      "power_basis": "facility",
+      "custom_power_mw": 1,
+      "duration_min": 5,
+      "dc_bus_voltage": 800,
+      "pcs_efficiency": 0.97,
+      "battery_efficiency": 0.95,
+      "depth_of_discharge": 0.9,
+      "eol_capacity_factor": 0.8,
+      "redundancy": "N",
+      "container_power_mw": 1,
+      "container_energy_mwh": 2
+    },
+    "financial": {
+      "electricity_rate": 0.13,
+      "demand_charge": 0,
+      "currency": "USD"
+    },
+    "advanced": {
+      "hours_per_year": 8760,
+      "facility_power_factor": null
+    }
+  }
+}

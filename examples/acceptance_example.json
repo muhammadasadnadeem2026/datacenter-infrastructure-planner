@@ -1,0 +1,1578 @@
+{
+  "format": "hallplan-project",
+  "name": "Acceptance example - 10 racks x 6 kW",
+  "calculator_version": "1.0.0",
+  "inputs": {
+    "mode": "standard",
+    "unit_system": "imperial",
+    "preset": "custom",
+    "it": {
+      "input_mode": "rack_average",
+      "rack_count": 10,
+      "kw_per_rack": 6.0,
+      "power_factor": 0.95,
+      "utilization_pct": 100.0,
+      "devices": [
+        {
+          "id": null,
+          "equipment_type": "CPU Server",
+          "description": "2U dual-socket compute",
+          "quantity": 16,
+          "nameplate_w": 800.0,
+          "utilization_pct": 60.0,
+          "rack": "R01"
+        },
+        {
+          "id": null,
+          "equipment_type": "Storage",
+          "description": "All-flash array",
+          "quantity": 2,
+          "nameplate_w": 1200.0,
+          "utilization_pct": 70.0,
+          "rack": "R02"
+        },
+        {
+          "id": null,
+          "equipment_type": "Network Switch",
+          "description": "Top-of-rack 48-port",
+          "quantity": 4,
+          "nameplate_w": 350.0,
+          "utilization_pct": 50.0,
+          "rack": "R01"
+        },
+        {
+          "id": null,
+          "equipment_type": "Firewall",
+          "description": "Edge firewall pair",
+          "quantity": 2,
+          "nameplate_w": 250.0,
+          "utilization_pct": 50.0,
+          "rack": "R02"
+        }
+      ]
+    },
+    "rack": {
+      "rack_rating_kw": 12.0
+    },
+    "space": {
+      "room_area": 2000.0,
+      "room_area_unit": "ft2"
+    },
+    "electrical": {
+      "receptacle_id": "nema_l21_30",
+      "voltage": 208.0,
+      "current": 30.0,
+      "phase": "three",
+      "continuous_derate": 0.8,
+      "circuits_per_rack": 0
+    },
+    "pdu": {
+      "voltage": 208.0,
+      "amperage": 30.0,
+      "phase": "three",
+      "continuous_derate": 0.8,
+      "growth_margin_pct": 20.0,
+      "feed": "ab"
+    },
+    "ups": {
+      "target_load_pct": 80.0,
+      "redundancy": "N+1",
+      "modules_n": 2,
+      "module_kva": 0.0,
+      "battery": {
+        "enabled": false,
+        "chemistry": "li_ion",
+        "nominal_voltage": 480.0,
+        "capacity_kwh": 40.0,
+        "capacity_ah": 0.0,
+        "discharge_efficiency": 0.95,
+        "degradation_pct": 20.0,
+        "runtime_target_min": 5.0
+      }
+    },
+    "cooling": {
+      "unit_capacity_kw": 100.0,
+      "unit_count": 4,
+      "redundancy": "N+1"
+    },
+    "facility": {
+      "pue": 1.5,
+      "cooling_share_pct": null,
+      "electrical_loss_share_pct": null,
+      "other_share_pct": null
+    },
+    "environment": {
+      "ambient_temp": 24.0,
+      "ambient_temp_unit": "C",
+      "altitude": 100.0,
+      "altitude_unit": "m",
+      "ashrae_class": "A1",
+      "humidity_pct": null,
+      "temperature_derate_factor": 1.0,
+      "altitude_derate_factor": 1.0,
+      "apply_derating": false
+    },
+    "utility": {
+      "service_voltage_v": 13800.0,
+      "service_capacity_kva": 1500.0
+    },
+    "transformer": {
+      "enabled": true,
+      "primary_voltage_v": 13800.0,
+      "secondary_voltage_v": 480.0,
+      "kva_rating": 750.0,
+      "efficiency": 0.985,
+      "impedance_pct": 5.75,
+      "quantity": 2,
+      "redundancy": "N+1",
+      "target_utilization_pct": 80.0
+    },
+    "generator": {
+      "enabled": true,
+      "unit_kw": 500.0,
+      "unit_kva": 625.0,
+      "power_factor": 0.8,
+      "quantity": 2,
+      "redundancy": "N+1",
+      "step_load_pct": 50.0,
+      "target_loading_pct": 80.0,
+      "load_basis": "full",
+      "custom_load_kw": 0.0
+    },
+    "bess": {
+      "enabled": false,
+      "power_basis": "facility",
+      "custom_power_mw": 1.0,
+      "duration_min": 5.0,
+      "dc_bus_voltage": 800.0,
+      "pcs_efficiency": 0.97,
+      "battery_efficiency": 0.95,
+      "depth_of_discharge": 0.9,
+      "eol_capacity_factor": 0.8,
+      "redundancy": "N",
+      "container_power_mw": 1.0,
+      "container_energy_mwh": 2.0
+    },
+    "financial": {
+      "electricity_rate": 0.13,
+      "demand_charge": 0.0,
+      "currency": "USD"
+    },
+    "advanced": {
+      "hours_per_year": 8760.0,
+      "facility_power_factor": null
+    }
+  },
+  "results": {
+    "engine_version": "1.0.0",
+    "calculated_at": "2026-09-23T18:46:09.252669+00:00",
+    "mode": "standard",
+    "unit_system": "imperial",
+    "modules": {
+      "it": {
+        "module": "it",
+        "steps": [
+          {
+            "key": "it_kw",
+            "label": "IT load",
+            "value": 60.0,
+            "unit": "kW",
+            "formula": "IT kW = Racks \u00d7 kW per rack",
+            "substitution": "10 \u00d7 6",
+            "assumption": "Design (peak) IT load used for all infrastructure sizing.",
+            "reference": ""
+          },
+          {
+            "key": "rack_count",
+            "label": "Racks",
+            "value": 10,
+            "unit": "racks",
+            "formula": "Input",
+            "substitution": "10",
+            "assumption": "",
+            "reference": ""
+          },
+          {
+            "key": "kw_per_rack",
+            "label": "Average load per rack",
+            "value": 6.0,
+            "unit": "kW/rack",
+            "formula": "kW per rack = IT kW / Racks",
+            "substitution": "60 / 10",
+            "assumption": "",
+            "reference": ""
+          },
+          {
+            "key": "power_factor",
+            "label": "Power factor",
+            "value": 0.95,
+            "unit": "",
+            "formula": "Input",
+            "substitution": "0.95",
+            "assumption": "",
+            "reference": ""
+          },
+          {
+            "key": "it_kva",
+            "label": "Apparent power",
+            "value": 63.15789473684211,
+            "unit": "kVA",
+            "formula": "kVA = kW / PF",
+            "substitution": "60 / 0.95",
+            "assumption": "",
+            "reference": ""
+          },
+          {
+            "key": "it_mw",
+            "label": "IT load",
+            "value": 0.06,
+            "unit": "MW",
+            "formula": "MW = kW / 1000",
+            "substitution": "60 / 1000",
+            "assumption": "",
+            "reference": ""
+          },
+          {
+            "key": "operating_it_kw",
+            "label": "Average operating IT load",
+            "value": 60.0,
+            "unit": "kW",
+            "formula": "Operating kW = IT kW \u00d7 average utilization",
+            "substitution": "60 \u00d7 1",
+            "assumption": "Average utilization applies to energy estimates only; sizing uses design load.",
+            "reference": ""
+          }
+        ],
+        "data": {
+          "input_mode": "rack_average",
+          "per_rack_kw": 6.0
+        }
+      },
+      "rack_count": {
+        "module": "rack_count",
+        "steps": [
+          {
+            "key": "target_it_kw",
+            "label": "Target IT load",
+            "value": 60.0,
+            "unit": "kW",
+            "formula": "Input",
+            "substitution": "60",
+            "assumption": "",
+            "reference": ""
+          },
+          {
+            "key": "rack_rating_kw",
+            "label": "Rack power rating",
+            "value": 12.0,
+            "unit": "kW/rack",
+            "formula": "Input",
+            "substitution": "12",
+            "assumption": "",
+            "reference": ""
+          },
+          {
+            "key": "racks_required",
+            "label": "Racks required",
+            "value": 5,
+            "unit": "racks",
+            "formula": "Racks = ceil(IT kW / Rack kW)",
+            "substitution": "ceil(60 / 12)",
+            "assumption": "",
+            "reference": ""
+          },
+          {
+            "key": "installed_rack_kw",
+            "label": "Installed rack power",
+            "value": 60.0,
+            "unit": "kW",
+            "formula": "Installed = Racks \u00d7 Rack kW",
+            "substitution": "5 \u00d7 12",
+            "assumption": "",
+            "reference": ""
+          },
+          {
+            "key": "unused_kw",
+            "label": "Unused rack capacity",
+            "value": 0.0,
+            "unit": "kW",
+            "formula": "Unused = Installed \u2212 IT kW",
+            "substitution": "60 \u2212 60",
+            "assumption": "",
+            "reference": ""
+          },
+          {
+            "key": "racks_planned",
+            "label": "Racks planned",
+            "value": 10,
+            "unit": "racks",
+            "formula": "Input",
+            "substitution": "10",
+            "assumption": "",
+            "reference": ""
+          },
+          {
+            "key": "planned_rack_kw",
+            "label": "Planned rack power capacity",
+            "value": 120.0,
+            "unit": "kW",
+            "formula": "Capacity = Racks planned \u00d7 Rack kW",
+            "substitution": "10 \u00d7 12",
+            "assumption": "",
+            "reference": ""
+          },
+          {
+            "key": "rack_power_loading_pct",
+            "label": "Rack power utilization",
+            "value": 50.0,
+            "unit": "%",
+            "formula": "Utilization = IT kW / Rack capacity \u00d7 100",
+            "substitution": "60 / 120 \u00d7 100",
+            "assumption": "",
+            "reference": ""
+          }
+        ],
+        "data": {}
+      },
+      "space": {
+        "module": "space",
+        "steps": [
+          {
+            "key": "area_ft2",
+            "label": "Room area",
+            "value": 2000.0,
+            "unit": "ft\u00b2",
+            "formula": "Input",
+            "substitution": "2,000",
+            "assumption": "",
+            "reference": ""
+          },
+          {
+            "key": "area_m2",
+            "label": "Room area",
+            "value": 185.80608,
+            "unit": "m\u00b2",
+            "formula": "m\u00b2 = ft\u00b2 \u00d7 0.09290304",
+            "substitution": "2,000 \u00d7 0.09290304",
+            "assumption": "",
+            "reference": "physics-conversion"
+          },
+          {
+            "key": "w_per_ft2",
+            "label": "Area density",
+            "value": 30.0,
+            "unit": "W/ft\u00b2",
+            "formula": "W/ft\u00b2 = IT kW \u00d7 1000 / Area ft\u00b2",
+            "substitution": "60 \u00d7 1000 / 2,000",
+            "assumption": "IT load spread over the entered room (white-space) area.",
+            "reference": ""
+          },
+          {
+            "key": "w_per_m2",
+            "label": "Area density",
+            "value": 322.91731250129163,
+            "unit": "W/m\u00b2",
+            "formula": "W/m\u00b2 = IT kW \u00d7 1000 / Area m\u00b2",
+            "substitution": "60 \u00d7 1000 / 185.8061",
+            "assumption": "",
+            "reference": ""
+          },
+          {
+            "key": "ft2_per_rack",
+            "label": "Area per rack",
+            "value": 200.0,
+            "unit": "ft\u00b2/rack",
+            "formula": "Area per rack = Area / Racks",
+            "substitution": "2,000 / 10",
+            "assumption": "",
+            "reference": ""
+          },
+          {
+            "key": "m2_per_rack",
+            "label": "Area per rack",
+            "value": 18.580608,
+            "unit": "m\u00b2/rack",
+            "formula": "Area per rack = Area / Racks",
+            "substitution": "185.8061 / 10",
+            "assumption": "",
+            "reference": ""
+          }
+        ],
+        "data": {}
+      },
+      "circuit": {
+        "module": "circuit",
+        "steps": [
+          {
+            "key": "nominal_kva",
+            "label": "Nominal circuit capacity",
+            "value": 10.807997039229793,
+            "unit": "kVA",
+            "formula": "kVA = \u221a3 \u00d7 V \u00d7 A / 1000",
+            "substitution": "\u221a3 \u00d7 208 \u00d7 30 / 1000",
+            "assumption": "Three-phase circuit, NEMA L21-30 (208 V three-phase).",
+            "reference": ""
+          },
+          {
+            "key": "usable_kva",
+            "label": "Usable continuous capacity",
+            "value": 8.646397631383834,
+            "unit": "kVA",
+            "formula": "Usable kVA = Circuit kVA \u00d7 continuous load factor",
+            "substitution": "10.808 \u00d7 0.8",
+            "assumption": "Continuous load factor applied to the circuit rating.",
+            "reference": "nec-continuous-load"
+          },
+          {
+            "key": "rack_kva",
+            "label": "Required rack apparent power",
+            "value": 6.315789473684211,
+            "unit": "kVA",
+            "formula": "Rack kVA = Rack kW / PF",
+            "substitution": "6 / 0.95",
+            "assumption": "",
+            "reference": ""
+          },
+          {
+            "key": "min_circuits",
+            "label": "Minimum circuits per rack",
+            "value": 1,
+            "unit": "circuits",
+            "formula": "N = ceil(Rack kVA / Usable circuit kVA)",
+            "substitution": "ceil(6.3158 / 8.6464)",
+            "assumption": "Load shared across circuits of one feed; A/B redundancy doubles the count (see PDU).",
+            "reference": ""
+          },
+          {
+            "key": "installed_kva",
+            "label": "Installed usable circuit capacity per rack",
+            "value": 8.646397631383834,
+            "unit": "kVA",
+            "formula": "Installed = Usable circuit kVA \u00d7 circuits",
+            "substitution": "8.6464 \u00d7 1",
+            "assumption": "Evaluated at the minimum circuit count.",
+            "reference": ""
+          },
+          {
+            "key": "installed_nominal_kva",
+            "label": "Installed nominal circuit capacity per rack",
+            "value": 10.807997039229793,
+            "unit": "kVA",
+            "formula": "Nominal installed = Circuit kVA \u00d7 circuits",
+            "substitution": "10.808 \u00d7 1",
+            "assumption": "",
+            "reference": ""
+          },
+          {
+            "key": "loading_pct",
+            "label": "Circuit loading (of rating)",
+            "value": 58.436262063727305,
+            "unit": "%",
+            "formula": "Loading % = Rack kVA / Nominal installed kVA \u00d7 100",
+            "substitution": "6.3158 / 10.808 \u00d7 100",
+            "assumption": "Compared with the circuit rating; loading above 80 % of rating fails the continuous-load check.",
+            "reference": "nec-continuous-load"
+          },
+          {
+            "key": "loading_of_usable_pct",
+            "label": "Circuit loading (of usable capacity)",
+            "value": 73.04532757965913,
+            "unit": "%",
+            "formula": "Loading % = Rack kVA / Usable installed kVA \u00d7 100",
+            "substitution": "6.3158 / 8.6464 \u00d7 100",
+            "assumption": "",
+            "reference": ""
+          },
+          {
+            "key": "headroom_kva",
+            "label": "Remaining headroom",
+            "value": 2.330608157699624,
+            "unit": "kVA",
+            "formula": "Headroom = Installed capacity \u2212 Rack kVA",
+            "substitution": "8.6464 \u2212 6.3158",
+            "assumption": "",
+            "reference": ""
+          },
+          {
+            "key": "circuit_current_a",
+            "label": "Rack current per circuit",
+            "value": 17.530878619118194,
+            "unit": "A",
+            "formula": "I = kVA \u00d7 1000 / (\u221a3 \u00d7 V)",
+            "substitution": "6.3158 \u00d7 1000 / (\u221a3 \u00d7 208)",
+            "assumption": "Balanced load across circuits (and phases for three-phase).",
+            "reference": ""
+          },
+          {
+            "key": "status",
+            "label": "Circuit loading status",
+            "value": "ok",
+            "unit": "",
+            "formula": "\u226470 % normal; \u226480 % caution; >80 % fails continuous-load check",
+            "substitution": "58.4363 %",
+            "assumption": "",
+            "reference": ""
+          }
+        ],
+        "data": {
+          "receptacle": "NEMA L21-30 (208 V three-phase)",
+          "phase": "three",
+          "evaluated_on": "minimum",
+          "circuits_per_rack": 0,
+          "limits_pct": {
+            "caution": 70.0,
+            "critical": 80.0
+          }
+        }
+      },
+      "pdu": {
+        "module": "pdu",
+        "steps": [
+          {
+            "key": "design_kw",
+            "label": "Design rack load",
+            "value": 7.199999999999999,
+            "unit": "kW",
+            "formula": "Design kW = Rack kW \u00d7 (1 + growth margin)",
+            "substitution": "6 \u00d7 (1 + 0.2)",
+            "assumption": "",
+            "reference": ""
+          },
+          {
+            "key": "rack_kva",
+            "label": "Design rack apparent power",
+            "value": 7.578947368421052,
+            "unit": "kVA",
+            "formula": "Rack kVA = Design kW / PF",
+            "substitution": "7.2 / 0.95",
+            "assumption": "",
+            "reference": ""
+          },
+          {
+            "key": "pdu_kva",
+            "label": "PDU rated capacity",
+            "value": 10.807997039229793,
+            "unit": "kVA",
+            "formula": "kVA = \u221a3 \u00d7 V \u00d7 A / 1000",
+            "substitution": "\u221a3 \u00d7 208 \u00d7 30 / 1000",
+            "assumption": "",
+            "reference": ""
+          },
+          {
+            "key": "pdu_usable_kva",
+            "label": "PDU usable capacity",
+            "value": 8.646397631383834,
+            "unit": "kVA",
+            "formula": "Usable = Rated kVA \u00d7 continuous factor",
+            "substitution": "10.808 \u00d7 0.8",
+            "assumption": "",
+            "reference": "nec-continuous-load"
+          },
+          {
+            "key": "pdus_per_feed",
+            "label": "PDUs per feed",
+            "value": 1,
+            "unit": "PDUs",
+            "formula": "PDUs per feed = ceil(Rack kVA / Usable PDU kVA)",
+            "substitution": "ceil(7.5789 / 8.6464)",
+            "assumption": "Each feed carries the full design load on its own (A/B philosophy).",
+            "reference": ""
+          },
+          {
+            "key": "pdus_total",
+            "label": "PDUs per rack",
+            "value": 2,
+            "unit": "PDUs",
+            "formula": "Total = PDUs per feed \u00d7 feeds",
+            "substitution": "1 \u00d7 2",
+            "assumption": "",
+            "reference": ""
+          },
+          {
+            "key": "load_per_pdu_kva",
+            "label": "Load per PDU (normal, shared A/B)",
+            "value": 3.789473684210526,
+            "unit": "kVA",
+            "formula": "Normal load = Rack kVA / total PDUs",
+            "substitution": "7.5789 / 2",
+            "assumption": "",
+            "reference": ""
+          },
+          {
+            "key": "loading_normal_pct",
+            "label": "PDU loading (normal)",
+            "value": 35.06175723823638,
+            "unit": "%",
+            "formula": "Loading = Load per PDU / Rated kVA \u00d7 100",
+            "substitution": "3.7895 / 10.808 \u00d7 100",
+            "assumption": "",
+            "reference": ""
+          },
+          {
+            "key": "load_per_pdu_failover_kva",
+            "label": "Load per PDU (one feed lost)",
+            "value": 7.578947368421052,
+            "unit": "kVA",
+            "formula": "Load = Rack kVA / PDUs per feed",
+            "substitution": "7.5789 / 1",
+            "assumption": "",
+            "reference": ""
+          },
+          {
+            "key": "loading_pct",
+            "label": "PDU loading (design case)",
+            "value": 70.12351447647276,
+            "unit": "%",
+            "formula": "Loading = Load per PDU / Rated kVA \u00d7 100",
+            "substitution": "7.5789 / 10.808 \u00d7 100",
+            "assumption": "Design case = one feed carrying the full load.",
+            "reference": ""
+          },
+          {
+            "key": "loading_of_usable_pct",
+            "label": "PDU loading of usable capacity",
+            "value": 87.65439309559096,
+            "unit": "%",
+            "formula": "Loading = Load per PDU / Usable kVA \u00d7 100",
+            "substitution": "7.5789 / 8.6464 \u00d7 100",
+            "assumption": "",
+            "reference": ""
+          },
+          {
+            "key": "status",
+            "label": "PDU loading status",
+            "value": "caution",
+            "unit": "",
+            "formula": "\u226470 % normal; \u226480 % caution; >80 % fails continuous-load check",
+            "substitution": "70.1235 %",
+            "assumption": "",
+            "reference": ""
+          },
+          {
+            "key": "line_current_a",
+            "label": "Line current per PDU",
+            "value": 21.03705434294183,
+            "unit": "A",
+            "formula": "I = kVA \u00d7 1000 / (\u221a3 \u00d7 V)",
+            "substitution": "7.5789 \u00d7 1000 / (\u221a3 \u00d7 208)",
+            "assumption": "",
+            "reference": ""
+          },
+          {
+            "key": "kva_per_phase",
+            "label": "Balanced load per phase",
+            "value": 2.526315789473684,
+            "unit": "kVA",
+            "formula": "kVA per phase = PDU load / 3",
+            "substitution": "7.5789 / 3",
+            "assumption": "Perfectly balanced phases; real racks are rarely balanced.",
+            "reference": ""
+          }
+        ],
+        "data": {
+          "feed": "ab",
+          "phase": "three",
+          "limits_pct": {
+            "caution": 70.0,
+            "critical": 80.0
+          }
+        }
+      },
+      "ups": {
+        "module": "ups",
+        "steps": [
+          {
+            "key": "load_kva",
+            "label": "UPS load",
+            "value": 63.15789473684211,
+            "unit": "kVA",
+            "formula": "Load kVA = IT kW / PF",
+            "substitution": "60 / 0.95",
+            "assumption": "",
+            "reference": ""
+          },
+          {
+            "key": "required_kva",
+            "label": "Required UPS capacity before redundancy",
+            "value": 78.94736842105263,
+            "unit": "kVA",
+            "formula": "Required kVA = Load kVA / target load fraction",
+            "substitution": "63.1579 / 0.8",
+            "assumption": "UPS sized so the N capacity runs at 80 % at design load.",
+            "reference": ""
+          },
+          {
+            "key": "redundancy_multiplier",
+            "label": "Redundancy multiplier",
+            "value": 1.5,
+            "unit": "\u00d7",
+            "formula": "N+1: (n + 1) / n",
+            "substitution": "n = 2",
+            "assumption": "",
+            "reference": "uptime-tiers"
+          },
+          {
+            "key": "module_count",
+            "label": "Installed UPS modules",
+            "value": 3,
+            "unit": "modules",
+            "formula": "N+1 with n = 2",
+            "substitution": "n = 2",
+            "assumption": "",
+            "reference": ""
+          },
+          {
+            "key": "installed_kva",
+            "label": "Installed UPS capacity",
+            "value": 118.42105263157895,
+            "unit": "kVA",
+            "formula": "Installed = Required kVA \u00d7 redundancy multiplier",
+            "substitution": "78.9474 \u00d7 1.5",
+            "assumption": "",
+            "reference": ""
+          },
+          {
+            "key": "module_kva",
+            "label": "UPS module size",
+            "value": 39.473684210526315,
+            "unit": "kVA",
+            "formula": "Module kVA = Installed kVA / installed modules",
+            "substitution": "118.4211 / 3",
+            "assumption": "",
+            "reference": ""
+          },
+          {
+            "key": "modules_required_n",
+            "label": "Modules required to carry load (n)",
+            "value": 2,
+            "unit": "modules",
+            "formula": "Input",
+            "substitution": "2",
+            "assumption": "",
+            "reference": ""
+          },
+          {
+            "key": "usable_kva",
+            "label": "Usable capacity (redundant modules excluded)",
+            "value": 78.94736842105263,
+            "unit": "kVA",
+            "formula": "Usable = Module kVA \u00d7 n",
+            "substitution": "39.4737 \u00d7 2",
+            "assumption": "",
+            "reference": ""
+          },
+          {
+            "key": "utilization_installed_pct",
+            "label": "Utilization of installed capacity",
+            "value": 53.333333333333336,
+            "unit": "%",
+            "formula": "Utilization = Load kVA / Installed kVA \u00d7 100",
+            "substitution": "63.1579 / 118.4211 \u00d7 100",
+            "assumption": "",
+            "reference": ""
+          },
+          {
+            "key": "utilization_usable_pct",
+            "label": "Utilization of usable (N) capacity",
+            "value": 80.0,
+            "unit": "%",
+            "formula": "Utilization = Load kVA / Usable kVA \u00d7 100",
+            "substitution": "63.1579 / 78.9474 \u00d7 100",
+            "assumption": "",
+            "reference": ""
+          },
+          {
+            "key": "target_load_pct",
+            "label": "Target UPS loading",
+            "value": 80.0,
+            "unit": "%",
+            "formula": "Input",
+            "substitution": "80",
+            "assumption": "",
+            "reference": ""
+          }
+        ],
+        "data": {
+          "redundancy": "N+1",
+          "modules_n": 2,
+          "sizing": "auto"
+        }
+      },
+      "facility": {
+        "module": "facility",
+        "steps": [
+          {
+            "key": "pue",
+            "label": "PUE",
+            "value": 1.5,
+            "unit": "",
+            "formula": "Input",
+            "substitution": "1.5",
+            "assumption": "",
+            "reference": "green-grid-pue"
+          },
+          {
+            "key": "facility_kw",
+            "label": "Facility power",
+            "value": 90.0,
+            "unit": "kW",
+            "formula": "Facility kW = IT kW \u00d7 PUE",
+            "substitution": "60 \u00d7 1.5",
+            "assumption": "PUE applied at design IT load.",
+            "reference": "green-grid-pue"
+          },
+          {
+            "key": "facility_mw",
+            "label": "Facility power",
+            "value": 0.09,
+            "unit": "MW",
+            "formula": "MW = kW / 1000",
+            "substitution": "90 / 1000",
+            "assumption": "",
+            "reference": ""
+          },
+          {
+            "key": "facility_kva",
+            "label": "Facility apparent power",
+            "value": 94.73684210526316,
+            "unit": "kVA",
+            "formula": "kVA = Facility kW / PF",
+            "substitution": "90 / 0.95",
+            "assumption": "Facility-level power factor (defaults to the IT power factor).",
+            "reference": ""
+          },
+          {
+            "key": "overhead_kw",
+            "label": "Infrastructure overhead",
+            "value": 30.0,
+            "unit": "kW",
+            "formula": "Overhead = Facility kW \u2212 IT kW",
+            "substitution": "90 \u2212 60",
+            "assumption": "",
+            "reference": ""
+          },
+          {
+            "key": "it_pct",
+            "label": "IT share of facility power",
+            "value": 66.66666666666666,
+            "unit": "%",
+            "formula": "IT % = IT kW / Facility kW \u00d7 100",
+            "substitution": "60 / 90 \u00d7 100",
+            "assumption": "",
+            "reference": ""
+          },
+          {
+            "key": "overhead_pct",
+            "label": "Infrastructure share",
+            "value": 33.33333333333334,
+            "unit": "%",
+            "formula": "Overhead % = 100 \u2212 IT %",
+            "substitution": "100 \u2212 66.6667",
+            "assumption": "",
+            "reference": ""
+          }
+        ],
+        "data": {
+          "split_given": false,
+          "breakdown": [
+            {
+              "id": "it",
+              "label": "IT load",
+              "kw": 60.0
+            },
+            {
+              "id": "overhead",
+              "label": "Facility Overhead",
+              "kw": 30.0
+            }
+          ]
+        }
+      },
+      "cooling": {
+        "module": "cooling",
+        "steps": [
+          {
+            "key": "thermal_kw",
+            "label": "IT heat load",
+            "value": 60.0,
+            "unit": "kW thermal",
+            "formula": "Thermal kW = IT kW",
+            "substitution": "60",
+            "assumption": "Essentially all IT electrical power is converted to heat.",
+            "reference": ""
+          },
+          {
+            "key": "btu_hr",
+            "label": "IT heat load",
+            "value": 204728.52,
+            "unit": "BTU/hr",
+            "formula": "BTU/hr = kW \u00d7 3412.142",
+            "substitution": "60 \u00d7 3412.142",
+            "assumption": "",
+            "reference": "physics-conversion"
+          },
+          {
+            "key": "tons",
+            "label": "Cooling capacity required",
+            "value": 17.06071,
+            "unit": "tons",
+            "formula": "Tons = BTU/hr / 12000",
+            "substitution": "204,728.52 / 12000",
+            "assumption": "",
+            "reference": "physics-conversion"
+          },
+          {
+            "key": "btu_hr_per_rack",
+            "label": "Heat load per rack",
+            "value": 20472.852,
+            "unit": "BTU/hr/rack",
+            "formula": "BTU/hr per rack = BTU/hr / Racks",
+            "substitution": "204,728.52 / 10",
+            "assumption": "",
+            "reference": ""
+          },
+          {
+            "key": "tons_per_rack",
+            "label": "Cooling per rack",
+            "value": 1.706071,
+            "unit": "tons/rack",
+            "formula": "Tons per rack = (BTU/hr / Racks) / 12000",
+            "substitution": "20,472.852 / 12000",
+            "assumption": "",
+            "reference": ""
+          },
+          {
+            "key": "total_heat_kw",
+            "label": "Total room heat load",
+            "value": 60.0,
+            "unit": "kW thermal",
+            "formula": "Total heat = IT heat + additional in-room heat",
+            "substitution": "60 + 0",
+            "assumption": "No additional in-room heat sources entered.",
+            "reference": ""
+          },
+          {
+            "key": "total_btu_hr",
+            "label": "Total room heat load",
+            "value": 204728.52,
+            "unit": "BTU/hr",
+            "formula": "BTU/hr = kW \u00d7 3412.142",
+            "substitution": "60 \u00d7 3412.142",
+            "assumption": "",
+            "reference": ""
+          },
+          {
+            "key": "total_tons",
+            "label": "Total cooling required",
+            "value": 17.06071,
+            "unit": "tons",
+            "formula": "Tons = BTU/hr / 12000",
+            "substitution": "204,728.52 / 12000",
+            "assumption": "",
+            "reference": ""
+          },
+          {
+            "key": "classification",
+            "label": "Cooling classification",
+            "value": "Air cooling with containment",
+            "unit": "",
+            "formula": "Band lookup on kW/rack",
+            "substitution": "6 kW/rack",
+            "assumption": "Hot- or cold-aisle containment is recommended to prevent bypass and recirculation.",
+            "reference": ""
+          },
+          {
+            "key": "unit_capacity_kw",
+            "label": "Cooling unit capacity (derated)",
+            "value": 100.0,
+            "unit": "kW thermal",
+            "formula": "Unit capacity \u00d7 environmental factor",
+            "substitution": "100 \u00d7 1",
+            "assumption": "Manufacturer capacity at site conditions; factor from Environment module.",
+            "reference": "manufacturer-data"
+          },
+          {
+            "key": "installed_kw",
+            "label": "Installed cooling capacity",
+            "value": 400.0,
+            "unit": "kW thermal",
+            "formula": "Installed = Unit capacity \u00d7 Units",
+            "substitution": "100 \u00d7 4",
+            "assumption": "",
+            "reference": ""
+          },
+          {
+            "key": "usable_kw",
+            "label": "Usable cooling capacity (after redundancy)",
+            "value": 300.0,
+            "unit": "kW thermal",
+            "formula": "Usable = Unit capacity \u00d7 units available under N+1",
+            "substitution": "100 \u00d7 3",
+            "assumption": "",
+            "reference": "uptime-tiers"
+          },
+          {
+            "key": "usable_tons",
+            "label": "Usable cooling capacity",
+            "value": 85.30355,
+            "unit": "tons",
+            "formula": "Tons = kW \u00d7 3412.142 / 12000",
+            "substitution": "300 \u00d7 3412.142 / 12000",
+            "assumption": "",
+            "reference": ""
+          }
+        ],
+        "data": {
+          "classification": {
+            "id": "containment",
+            "min_kw": 5.0,
+            "max_kw": 12.0,
+            "name": "Air cooling with containment",
+            "description": "Hot- or cold-aisle containment is recommended to prevent bypass and recirculation.",
+            "severity": "info"
+          },
+          "redundancy": "N+1"
+        }
+      },
+      "energy": {
+        "module": "energy",
+        "steps": [
+          {
+            "key": "hours_per_year",
+            "label": "Hours per year",
+            "value": 8760.0,
+            "unit": "h",
+            "formula": "Input",
+            "substitution": "8,760",
+            "assumption": "",
+            "reference": ""
+          },
+          {
+            "key": "annual_it_kwh",
+            "label": "Annual IT energy",
+            "value": 525600.0,
+            "unit": "kWh",
+            "formula": "Annual IT kWh = IT kW \u00d7 utilization \u00d7 hours",
+            "substitution": "60 \u00d7 8,760",
+            "assumption": "Design load operating continuously.",
+            "reference": ""
+          },
+          {
+            "key": "annual_facility_kwh",
+            "label": "Annual facility energy",
+            "value": 788400.0,
+            "unit": "kWh",
+            "formula": "Annual facility kWh = Facility kW \u00d7 utilization \u00d7 hours",
+            "substitution": "90 \u00d7 8,760",
+            "assumption": "Design load operating continuously.",
+            "reference": ""
+          },
+          {
+            "key": "annual_facility_mwh",
+            "label": "Annual facility energy",
+            "value": 788.4,
+            "unit": "MWh",
+            "formula": "MWh = kWh / 1000",
+            "substitution": "788,400 / 1000",
+            "assumption": "",
+            "reference": ""
+          },
+          {
+            "key": "annual_energy_cost",
+            "label": "Annual energy charge",
+            "value": 102492.0,
+            "unit": "USD",
+            "formula": "Energy charge = Annual facility kWh \u00d7 rate",
+            "substitution": "788,400 \u00d7 0.13",
+            "assumption": "Flat energy rate. Real tariffs (TOU, tiers, taxes, riders) vary \u2014 this is an estimate.",
+            "reference": ""
+          },
+          {
+            "key": "annual_demand_cost",
+            "label": "Annual demand charge",
+            "value": 0.0,
+            "unit": "USD",
+            "formula": "Demand charge = Peak facility kW \u00d7 $/kW-month \u00d7 12",
+            "substitution": "90 \u00d7 0 \u00d7 12",
+            "assumption": "Peak demand taken as design facility load every month.",
+            "reference": ""
+          },
+          {
+            "key": "annual_cost",
+            "label": "Estimated annual electricity bill",
+            "value": 102492.0,
+            "unit": "USD",
+            "formula": "Total = Energy charge + Demand charge",
+            "substitution": "102,492 + 0",
+            "assumption": "Estimate only; utility tariff structures vary.",
+            "reference": ""
+          },
+          {
+            "key": "monthly_cost",
+            "label": "Average monthly bill",
+            "value": 8541.0,
+            "unit": "USD",
+            "formula": "Monthly = Annual / 12",
+            "substitution": "102,492 / 12",
+            "assumption": "",
+            "reference": ""
+          }
+        ],
+        "data": {
+          "currency": "USD"
+        }
+      }
+    },
+    "capacity": {
+      "rows": [
+        {
+          "system": "it",
+          "label": "IT (rack power)",
+          "required": 60.0,
+          "installed": 120.0,
+          "usable": 120.0,
+          "unit": "kW",
+          "redundancy": "\u2014",
+          "loading_pct": 50.0,
+          "reserve": 60.0,
+          "max_it_kw": 120.0,
+          "usable_kw_equivalent": null,
+          "status": "ok",
+          "note": "Design IT load vs provisioned rack power."
+        },
+        {
+          "system": "ups",
+          "label": "UPS",
+          "required": 63.15789473684211,
+          "installed": 118.42105263157895,
+          "usable": 78.94736842105263,
+          "unit": "kVA",
+          "redundancy": "N+1",
+          "loading_pct": 80.0,
+          "reserve": 15.78947368421052,
+          "max_it_kw": 74.99999999999999,
+          "usable_kw_equivalent": 75.0,
+          "status": "ok",
+          "note": ""
+        },
+        {
+          "system": "transformer",
+          "label": "Transformer",
+          "required": null,
+          "installed": null,
+          "usable": null,
+          "unit": "kVA",
+          "redundancy": "\u2014",
+          "loading_pct": null,
+          "reserve": null,
+          "max_it_kw": null,
+          "usable_kw_equivalent": null,
+          "status": "not_configured",
+          "note": ""
+        },
+        {
+          "system": "utility",
+          "label": "Utility service",
+          "required": null,
+          "installed": null,
+          "usable": null,
+          "unit": "kVA",
+          "redundancy": "\u2014",
+          "loading_pct": null,
+          "reserve": null,
+          "max_it_kw": null,
+          "usable_kw_equivalent": null,
+          "status": "not_configured",
+          "note": ""
+        },
+        {
+          "system": "generator",
+          "label": "Generator",
+          "required": null,
+          "installed": null,
+          "usable": null,
+          "unit": "kW",
+          "redundancy": "\u2014",
+          "loading_pct": null,
+          "reserve": null,
+          "max_it_kw": null,
+          "usable_kw_equivalent": null,
+          "status": "not_configured",
+          "note": ""
+        },
+        {
+          "system": "bess_power",
+          "label": "BESS power",
+          "required": null,
+          "installed": null,
+          "usable": null,
+          "unit": "MW",
+          "redundancy": "\u2014",
+          "loading_pct": null,
+          "reserve": null,
+          "max_it_kw": null,
+          "usable_kw_equivalent": null,
+          "status": "not_configured",
+          "note": ""
+        },
+        {
+          "system": "bess_energy",
+          "label": "BESS energy",
+          "required": null,
+          "installed": null,
+          "usable": null,
+          "unit": "MWh",
+          "redundancy": "\u2014",
+          "loading_pct": null,
+          "reserve": null,
+          "max_it_kw": null,
+          "usable_kw_equivalent": null,
+          "status": "not_configured",
+          "note": ""
+        },
+        {
+          "system": "cooling",
+          "label": "Cooling",
+          "required": 60.0,
+          "installed": 400.0,
+          "usable": 300.0,
+          "unit": "kW thermal",
+          "redundancy": "N+1",
+          "loading_pct": 20.0,
+          "reserve": 240.0,
+          "max_it_kw": 300.0,
+          "usable_kw_equivalent": null,
+          "status": "ok",
+          "note": ""
+        }
+      ],
+      "bottleneck": {
+        "system": "ups",
+        "label": "UPS",
+        "loading_pct": 80.0,
+        "max_it_kw": 74.99999999999999,
+        "status": "ok",
+        "message": "UPS is the limiting system at 80.0 % of usable capacity; it could support about 75 kW of IT load at the current ratios."
+      }
+    },
+    "warnings": [
+      {
+        "severity": "caution",
+        "code": "PDU_HEADROOM",
+        "title": "Limited PDU headroom",
+        "message": "Each PDU carries 70.1 % of its rating with one feed lost.",
+        "affected_system": "pdu",
+        "reference": ""
+      }
+    ],
+    "power_flow": {
+      "nodes": [
+        {
+          "id": "utility",
+          "label": "Utility",
+          "visible": true,
+          "metrics": [
+            {
+              "label": "Demand",
+              "value": 0.09473684210526316,
+              "unit": "MVA"
+            },
+            {
+              "label": "Voltage",
+              "value": 13.8,
+              "unit": "kV"
+            }
+          ]
+        },
+        {
+          "id": "mv_switchgear",
+          "label": "MV Switchgear",
+          "visible": false,
+          "metrics": []
+        },
+        {
+          "id": "transformer",
+          "label": "Transformer",
+          "visible": false,
+          "metrics": []
+        },
+        {
+          "id": "lv_switchgear",
+          "label": "LV Switchgear",
+          "visible": true,
+          "metrics": [
+            {
+              "label": "Facility",
+              "value": 0.09,
+              "unit": "MW"
+            },
+            {
+              "label": "Facility",
+              "value": 0.09473684210526316,
+              "unit": "MVA"
+            }
+          ]
+        },
+        {
+          "id": "ups",
+          "label": "UPS",
+          "visible": true,
+          "metrics": [
+            {
+              "label": "Installed",
+              "value": 118.42105263157895,
+              "unit": "kVA"
+            },
+            {
+              "label": "Loading (N)",
+              "value": 80.0,
+              "unit": "%"
+            },
+            {
+              "label": "Modules",
+              "value": 3,
+              "unit": ""
+            }
+          ]
+        },
+        {
+          "id": "pdu",
+          "label": "Rack PDU",
+          "visible": true,
+          "metrics": [
+            {
+              "label": "Per rack",
+              "value": 2,
+              "unit": "PDUs"
+            },
+            {
+              "label": "Loading",
+              "value": 70.12351447647276,
+              "unit": "%"
+            }
+          ]
+        },
+        {
+          "id": "rack",
+          "label": "IT Racks",
+          "visible": true,
+          "metrics": [
+            {
+              "label": "IT load",
+              "value": 0.06,
+              "unit": "MW"
+            },
+            {
+              "label": "Racks",
+              "value": 10,
+              "unit": ""
+            },
+            {
+              "label": "Per rack",
+              "value": 6.0,
+              "unit": "kW"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "generator",
+          "label": "Generator",
+          "visible": false,
+          "feeds": "lv_switchgear",
+          "metrics": []
+        },
+        {
+          "id": "bess",
+          "label": "BESS",
+          "visible": false,
+          "feeds": "lv_switchgear",
+          "metrics": []
+        }
+      ]
+    },
+    "sankey": {
+      "nodes": [
+        {
+          "name": "Utility power"
+        },
+        {
+          "name": "IT load"
+        },
+        {
+          "name": "Facility Overhead"
+        }
+      ],
+      "links": [
+        {
+          "source": 0,
+          "target": 1,
+          "value": 60.0
+        },
+        {
+          "source": 0,
+          "target": 2,
+          "value": 30.0
+        }
+      ],
+      "split_given": false
+    },
+    "summary": [
+      {
+        "id": "it_load",
+        "label": "IT Load",
+        "imperial": {
+          "module": "it",
+          "key": "it_kw"
+        },
+        "metric": {
+          "module": "it",
+          "key": "it_kw"
+        }
+      },
+      {
+        "id": "facility_load",
+        "label": "Facility Load",
+        "imperial": {
+          "module": "facility",
+          "key": "facility_kw"
+        },
+        "metric": {
+          "module": "facility",
+          "key": "facility_kw"
+        }
+      },
+      {
+        "id": "per_rack",
+        "label": "Per Rack",
+        "imperial": {
+          "module": "it",
+          "key": "kw_per_rack"
+        },
+        "metric": {
+          "module": "it",
+          "key": "kw_per_rack"
+        }
+      },
+      {
+        "id": "apparent_power",
+        "label": "Apparent Power",
+        "imperial": {
+          "module": "it",
+          "key": "it_kva"
+        },
+        "metric": {
+          "module": "it",
+          "key": "it_kva"
+        }
+      },
+      {
+        "id": "cooling_tons",
+        "label": "Cooling",
+        "imperial": {
+          "module": "cooling",
+          "key": "tons"
+        },
+        "metric": {
+          "module": "cooling",
+          "key": "tons"
+        }
+      },
+      {
+        "id": "heat_load",
+        "label": "Heat Load",
+        "imperial": {
+          "module": "cooling",
+          "key": "btu_hr"
+        },
+        "metric": {
+          "module": "cooling",
+          "key": "thermal_kw"
+        }
+      },
+      {
+        "id": "rack_count",
+        "label": "Racks",
+        "imperial": {
+          "module": "it",
+          "key": "rack_count"
+        },
+        "metric": {
+          "module": "it",
+          "key": "rack_count"
+        }
+      },
+      {
+        "id": "area_density",
+        "label": "Area Density",
+        "imperial": {
+          "module": "space",
+          "key": "w_per_ft2"
+        },
+        "metric": {
+          "module": "space",
+          "key": "w_per_m2"
+        }
+      },
+      {
+        "id": "ups_installed",
+        "label": "UPS Installed",
+        "imperial": {
+          "module": "ups",
+          "key": "installed_kva"
+        },
+        "metric": {
+          "module": "ups",
+          "key": "installed_kva"
+        }
+      },
+      {
+        "id": "circuit_loading",
+        "label": "Circuit Loading",
+        "imperial": {
+          "module": "circuit",
+          "key": "loading_pct"
+        },
+        "metric": {
+          "module": "circuit",
+          "key": "loading_pct"
+        }
+      },
+      {
+        "id": "annual_energy",
+        "label": "Annual Energy",
+        "imperial": {
+          "module": "energy",
+          "key": "annual_facility_mwh"
+        },
+        "metric": {
+          "module": "energy",
+          "key": "annual_facility_mwh"
+        }
+      },
+      {
+        "id": "annual_cost",
+        "label": "Annual Cost",
+        "imperial": {
+          "module": "energy",
+          "key": "annual_cost"
+        },
+        "metric": {
+          "module": "energy",
+          "key": "annual_cost"
+        }
+      }
+    ]
+  },
+  "warnings": [
+    {
+      "severity": "caution",
+      "code": "PDU_HEADROOM",
+      "title": "Limited PDU headroom",
+      "message": "Each PDU carries 70.1 % of its rating with one feed lost.",
+      "affected_system": "pdu",
+      "reference": ""
+    }
+  ]
+}

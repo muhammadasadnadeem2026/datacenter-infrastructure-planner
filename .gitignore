@@ -1,0 +1,31 @@
+# Python
+backend/.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+*.db
+
+# Node
+frontend/node_modules/
+frontend/dist/
+frontend/coverage/
+
+# Env / secrets
+.env
+backend/.env
+frontend/.env
+
+# OS / editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Local equipment reference data — never commit
+*.local.json
+
+*.db
+.env
